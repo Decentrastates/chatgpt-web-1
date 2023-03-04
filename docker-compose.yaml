@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  web:
+    image: redblow/chatgpt-web # 总是使用latest,更新时重新pull该tag镜像即可
+    ports:
+      - 8800:3002
+    # env_file:
+    #   - service/.env:/service/.env
+    environment:
+      # 二选一
+      OPENAI_API_KEY: xxx
+      # 二选一
+      OPENAI_ACCESS_TOKEN: xxx
+      # 反向代理，可选
+      API_REVERSE_PROXY: xxx
+      # 超时，单位毫秒，可选
+      TIMEOUT_MS: 60000
